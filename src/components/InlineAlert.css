@@ -1,0 +1,26 @@
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius-card);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.alert svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.alert[data-tone='error'] {
+  border: 1px solid var(--error-line);
+  background: var(--error-tint);
+  color: var(--error);
+}
+
+.alert[data-tone='info'] {
+  border: 1px solid var(--line);
+  background: var(--yellow-tint);
+  color: var(--caramel);
+}

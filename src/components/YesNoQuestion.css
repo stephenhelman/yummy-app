@@ -1,0 +1,117 @@
+.yn {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.yn[data-variant='card'] {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+}
+
+.yn[data-variant='card'][data-invalid='true'] {
+  border-color: var(--error-line);
+}
+
+.yn__question {
+  color: var(--plum);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.yn[data-variant='inline'] {
+  gap: 8px;
+}
+
+.yn[data-variant='inline'] .yn__question {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.yn__choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.yn__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 48px;
+  border: 1.5px solid var(--field-line);
+  border-radius: var(--radius-field-sm);
+  background: var(--surface);
+  color: var(--plum);
+  font-size: 15px;
+  font-weight: 600;
+  touch-action: manipulation;
+  scroll-margin-bottom: 140px;
+}
+
+.yn[data-variant='card'] .yn__btn {
+  border-radius: var(--radius-field);
+}
+
+.yn[data-variant='inline'] .yn__btn {
+  min-height: 46px;
+}
+
+.yn__btn[aria-pressed='true'] {
+  border: 2px solid var(--pink-strong);
+  background: var(--pink-tint);
+  color: var(--pink-deep);
+}
+
+.yn__check {
+  display: none;
+}
+
+.yn__btn[aria-pressed='true'] .yn__check {
+  display: block;
+}
+
+.yn__followup {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: var(--radius-field);
+  background: var(--ground);
+}
+
+.yn__followup > :only-child {
+  grid-column: 1 / -1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .yn__btn {
+    transition: transform var(--dur-press) var(--ease-out), background-color var(--dur-fast) var(--ease-out),
+      border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+  }
+
+  .yn__btn:active {
+    transform: scale(0.97);
+  }
+
+  .yn__btn[aria-pressed='true'] .yn__check {
+    animation: yn-check-pop var(--dur-fast) var(--ease-pop) both;
+  }
+
+  @keyframes yn-check-pop {
+    from {
+      opacity: 0;
+      transform: scale(0.6);
+    }
+  }
+}
+
+/* The closed Reveal contributes no height, so cancel the flex gap it would otherwise add. */
+.yn > .reveal {
+  margin-top: -12px;
+}

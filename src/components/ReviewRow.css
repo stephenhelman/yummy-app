@@ -1,0 +1,29 @@
+.review-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 12px 12px 18px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.review-row:last-child {
+  border-bottom: 0;
+}
+
+.review-row__text {
+  min-width: 0;
+}
+
+.review-row__title {
+  color: var(--plum);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.review-row__summary {
+  margin-top: 2px;
+  color: var(--text-subtle);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}

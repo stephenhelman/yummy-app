@@ -1,0 +1,44 @@
+.wizard {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.wizard__step {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding-bottom: 24px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Only the incoming step animates; the outgoing one is already gone. */
+  .wizard__step {
+    --enter-x: 24px;
+    animation: step-in var(--dur-base) var(--ease-out) both;
+  }
+
+  .wizard__step[data-direction='back'] {
+    --enter-x: -24px;
+  }
+
+  @keyframes step-in {
+    from {
+      opacity: 0;
+      transform: translateX(var(--enter-x));
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wizard__step {
+    animation: step-fade var(--dur-fast) linear both;
+  }
+
+  @keyframes step-fade {
+    from {
+      opacity: 0;
+    }
+  }
+}

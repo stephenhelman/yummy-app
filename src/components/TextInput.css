@@ -1,0 +1,27 @@
+.input-prefix {
+  position: relative;
+}
+
+.input-prefix__symbol {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  color: var(--text-subtle);
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.field[data-compact] .input-prefix__symbol {
+  left: 14px;
+}
+
+.input-prefix .control {
+  padding-left: 32px;
+}
+
+.field[data-compact] .input-prefix .control {
+  padding-left: 30px;
+}

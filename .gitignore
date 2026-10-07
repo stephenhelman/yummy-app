@@ -1,0 +1,11 @@
+node_modules
+dist
+.env
+.env.local
+.DS_Store
+
+# Reference material, not part of the repo
+design/
+CLAUDE_CODE_PROMPT.md
+la-michoacana-yummy-logo-original.png
+apps-script

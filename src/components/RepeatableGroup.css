@@ -1,0 +1,19 @@
+.group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* The gap lives inside the Reveal so a removed card takes its spacing with it. */
+.group__slot {
+  padding-bottom: 12px;
+}
+
+.group__add {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.group__add[data-invalid='true'] .btn--dashed {
+  border-color: var(--error-line);
+}

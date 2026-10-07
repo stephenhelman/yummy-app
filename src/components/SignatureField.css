@@ -1,0 +1,12 @@
+.control.signature {
+  height: 56px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--plum);
+}
+
+.signature__hint {
+  color: var(--text-subtle);
+  font-size: 13px;
+}

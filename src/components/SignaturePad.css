@@ -1,0 +1,104 @@
+.sig {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sig__pad {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 132px;
+  padding: 0 20px 18px;
+  border: 1.5px dashed var(--dashed-line);
+  border-radius: var(--radius-field);
+  background: var(--surface);
+}
+
+.sig[data-signed] .sig__pad {
+  border-style: solid;
+  border-color: var(--line);
+}
+
+.sig[data-invalid='true'] .sig__pad {
+  border-color: var(--error-line);
+}
+
+.sig__line {
+  position: absolute;
+  right: 20px;
+  bottom: 30px;
+  left: 20px;
+  border-bottom: 1.5px solid var(--field-line);
+}
+
+.sig__ink-wrap {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  max-width: 100%;
+  padding-bottom: 12px;
+}
+
+.sig__mark {
+  margin-right: 8px;
+  padding-bottom: 6px;
+  color: var(--text-subtle);
+  font-family: var(--font-body);
+  font-size: 18px;
+}
+
+.sig__ink {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 0 8px;
+  color: var(--plum);
+  font-family: var(--font-signature);
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+/* A page-colored panel that slides away to the right, so the name appears to be written left to right. */
+.sig__cover {
+  position: absolute;
+  inset: 0;
+  background: var(--surface);
+  transform: translateX(101%);
+}
+
+.sig__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 20px;
+}
+
+.sig__caption {
+  color: var(--text-subtle);
+  font-size: 13px;
+}
+
+.sig__footer .btn--text {
+  min-height: 44px;
+  margin-right: -12px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sig__cover {
+    transform: translateX(0);
+    animation: sig-write 1100ms var(--ease-in-out) 120ms forwards;
+  }
+
+  .sig__pad {
+    transition: border-color var(--dur-base) var(--ease-out);
+  }
+
+  @keyframes sig-write {
+    to {
+      transform: translateX(101%);
+    }
+  }
+}

@@ -1,0 +1,131 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.field__label {
+  color: var(--plum);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.field[data-compact] .field__label {
+  font-size: 13px;
+}
+
+.field__optional {
+  color: var(--text-subtle);
+  font-weight: 400;
+}
+
+.field__hint {
+  color: var(--text-subtle);
+  font-size: 13px;
+}
+
+.field__error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--error);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.field__error svg {
+  flex-shrink: 0;
+}
+
+/* Shared look for text inputs, textareas and money inputs. */
+.control {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+  border: 1.5px solid var(--field-line);
+  border-radius: var(--radius-field);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  appearance: none;
+  scroll-margin-bottom: 140px;
+}
+
+.field[data-compact] .control {
+  height: 48px;
+  padding: 0 14px;
+  border-radius: var(--radius-field-sm);
+}
+
+.control:focus {
+  outline: none;
+  border-color: var(--pink-strong);
+  box-shadow: 0 0 0 0.5px var(--pink-strong), var(--ring-focus);
+}
+
+.control[aria-invalid='true'] {
+  border-color: var(--error-line);
+}
+
+.control[aria-invalid='true']:focus {
+  box-shadow: 0 0 0 0.5px var(--error-line), 0 0 0 4px rgba(194, 65, 12, 0.14);
+}
+
+.control:disabled {
+  background: var(--ground);
+  color: var(--text-subtle);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .control {
+    transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+  }
+
+  .field__error {
+    animation: field-error-in var(--dur-base) var(--ease-out) both;
+  }
+
+  .is-shaking {
+    animation: field-shake 300ms var(--ease-out) 1;
+  }
+
+  @keyframes field-error-in {
+    from {
+      opacity: 0;
+      transform: translateY(-3px);
+    }
+  }
+
+  @keyframes field-shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    20% {
+      transform: translateX(-4px);
+    }
+    40% {
+      transform: translateX(4px);
+    }
+    60% {
+      transform: translateX(-4px);
+    }
+    80% {
+      transform: translateX(4px);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field__error {
+    animation: field-error-fade var(--dur-fast) linear both;
+  }
+
+  @keyframes field-error-fade {
+    from {
+      opacity: 0;
+    }
+  }
+}

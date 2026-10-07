@@ -1,0 +1,14 @@
+.control.textarea {
+  height: auto;
+  min-height: 96px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  line-height: 1.45;
+  resize: vertical;
+}
+
+.field[data-compact] .control.textarea {
+  height: auto;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}

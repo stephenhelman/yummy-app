@@ -1,0 +1,48 @@
+.sheet {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  border-radius: var(--radius-sheet) var(--radius-sheet) 0 0;
+  background: var(--ground);
+}
+
+.sheet__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.sheet[data-variant='compact'] {
+  padding: 24px 24px 0;
+}
+
+.sheet[data-variant='welcome'] {
+  padding: 32px 28px 28px;
+}
+
+.sheet[data-variant='success'] {
+  padding: 40px 28px 32px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sheet[data-intro] {
+    animation: sheet-rise var(--dur-slow) var(--ease-out) both;
+  }
+
+  .sheet--swap {
+    animation: sheet-swap 120ms linear;
+  }
+
+  @keyframes sheet-rise {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+  }
+
+  @keyframes sheet-swap {
+    50% {
+      opacity: 0.35;
+    }
+  }
+}

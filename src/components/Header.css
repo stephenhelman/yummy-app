@@ -1,0 +1,57 @@
+.header {
+  display: flex;
+  align-items: center;
+}
+
+/* Step screens: logo left, toggle right. */
+.header[data-variant='compact'] {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  padding: 14px 20px 18px;
+}
+
+.header[data-variant='compact'] .header__logo {
+  height: 54px;
+  width: auto;
+}
+
+/* Welcome: toggle on its own row, big centered logo below. */
+.header[data-variant='welcome'] {
+  flex-direction: column;
+  align-items: stretch;
+  padding: 20px 20px 0;
+}
+
+.header[data-variant='welcome'] .header__toggle {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header[data-variant='welcome'] .header__logo {
+  width: 270px;
+  max-width: 100%;
+  margin: 8px auto 28px;
+}
+
+.header[data-variant='success'] {
+  justify-content: center;
+  padding: 48px 60px 32px;
+}
+
+.header[data-variant='success'] .header__logo {
+  width: 210px;
+  max-width: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .header[data-intro] .header__logo {
+    animation: logo-in var(--dur-slow) var(--ease-out) both;
+  }
+
+  @keyframes logo-in {
+    from {
+      opacity: 0;
+      transform: scale(0.92);
+    }
+  }
+}

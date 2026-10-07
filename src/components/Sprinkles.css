@@ -1,0 +1,38 @@
+.sprinkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.sprinkles__bar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+  width: 13px;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--color);
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sprinkles__bar {
+    display: block;
+    animation: sprinkle-burst 1000ms var(--ease-out) var(--delay) both;
+  }
+
+  @keyframes sprinkle-burst {
+    from {
+      opacity: 1;
+      transform: translate(-50%, -50%) rotate(var(--angle)) translateX(46px) scale(0.6);
+    }
+    70% {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--dist)) scale(1);
+    }
+  }
+}

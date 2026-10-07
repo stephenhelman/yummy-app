@@ -1,0 +1,36 @@
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1.5px solid var(--field-line);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--plum);
+  font-size: 15px;
+  font-weight: 600;
+  touch-action: manipulation;
+}
+
+.chip[aria-pressed='true'] {
+  border-width: 2px;
+  padding: 0 17.5px;
+  border-color: var(--pink-strong);
+  background: var(--pink-tint);
+  color: var(--pink-deep);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .chip {
+    transition: transform var(--dur-press) var(--ease-out), background-color var(--dur-fast) var(--ease-out),
+      border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+  }
+
+  .chip:active {
+    transform: scale(0.97);
+  }
+}

@@ -1,0 +1,19 @@
+.step-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .step-body__item {
+    animation: step-item-in var(--dur-base) var(--ease-out) both;
+    animation-delay: calc(var(--i, 0) * 40ms);
+  }
+
+  @keyframes step-item-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+  }
+}
